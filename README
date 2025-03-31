@@ -1,0 +1,87 @@
+# Credit Risk Modeling Using Machine Learning
+
+## Project Overview
+This project implements a machine learning model to predict the Basic Earnings Per Share (EPS) for banks based on various financial metrics. The model is trained using XGBoost and deployed as a web application using Flask.
+
+## Features
+- Data preprocessing and cleaning with outlier removal
+- Feature selection using Variance Inflation Factor (VIF) analysis
+- Hyperparameter tuning for XGBoost regression model
+- Web-based interface for making predictions
+
+## Technical Stack
+- **Python**: Core programming language
+- **Libraries**:
+  - NumPy & Pandas: Data manipulation and analysis
+  - scikit-learn: Data preprocessing and evaluation metrics
+  - XGBoost: Gradient boosting for predictive modeling
+  - Flask: Web framework for the application
+- **Data**: Financial metrics from banking institutions
+
+## Model Information
+The XGBoost regression model was trained on financial metrics to predict the Basic EPS (Rs.). The best hyperparameters found through grid search are:
+- colsample_bytree: 0.7
+- learning_rate: 1.0
+- max_depth: 8
+- alpha: 10.0
+- n_estimators: 10
+
+The model achieved good performance metrics on the test set.
+
+## Input Features
+The model takes the following input features:
+1. ROCE (%) - Return on Capital Employed
+2. CASA (%) - Current Account Savings Account ratio
+3. Return on Equity / Networth (%)
+4. Non-Interest Income/Total Assets (%)
+5. Operating Profit/Total Assets (%)
+6. Operating Expenses/Total Assets (%)
+7. Interest Expenses/Total Assets (%)
+8. Face value
+
+## Setup and Installation
+1. Clone this repository
+2. Install the required packages:
+   ```
+   pip install numpy pandas scikit-learn xgboost flask
+   ```
+3. Navigate to the project directory
+4. Run the Flask application:
+   ```
+   python deploy.py
+   ```
+5. Access the web application at http://127.0.0.1:5000/
+
+## Project Structure
+```
+Credit_Risk_Modeling/
+├── Flask Deployment/
+│   ├── eps_v1.sav        # Saved model file
+│   ├── templates/
+│   │   └── index.html    # HTML template for the web interface
+├── EPS_Dataset.xlsx      # Dataset used for training (may require access)
+├── deploy.py             # Flask application for deployment
+├── README.md             # This file
+```
+
+## Usage
+1. Open the web application in your browser
+2. Enter the financial metrics in the provided form
+3. Click the "Predict using ML" button
+4. View the predicted EPS value
+
+## Future Improvements
+- Add input validation and error handling
+- Implement feature scaling in the web application
+- Add data visualization of prediction results
+- Create an API endpoint for programmatic access
+- Implement user authentication for secure access
+
+## License
+[Your License Here]
+
+## Contributors
+[Your Name/Team]
+
+## Acknowledgements
+- [Any acknowledgements you want to include]
